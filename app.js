@@ -9,18 +9,18 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var movie 		 = require('./movie.js');
 
-mongoose.connect('mongodb://localhost/movieTest'); 
+mongoose.connect('mongodb://localhost'); 
 
 //**********************
 //****movie require*****
 //**********************
-var movie = require('./movie');
-var threeFavoriteMovies = ["Gone in 60 Seconds", "MadMax Fury", "Shooter"];
-threeFavoriteMovies.forEach(function(film) {
-	//code
+// var movie = require('./movie');
+// var threeFavoriteMovies = ["Gone in 60 Seconds", "MadMax Fury", "Shooter"];
+// threeFavoriteMovies.forEach(function(film) {
+// 	//code
 	
-});
-console.log(threeFavoriteMovies);
+// });
+// console.log(threeFavoriteMovies);
 
 app.use(morgan('dev')); 
 app.use(cookieParser());
@@ -41,8 +41,8 @@ app.use(flash());
 //**movie path***
 //***************
 //how to redirect the movie path
-app.use(bodyParser.json());
-app.use('/movie', movie);
+// app.use(bodyParser.json());
+// app.use('/movie', movie);
 
 require('./config/passport')(passport);
 require('./config/passport')(passport);
