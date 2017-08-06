@@ -7,20 +7,9 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
-var movie 		 = require('./movie.js');
+// var movie 		 = require('./config/passport');
 
-mongoose.connect('mongodb://localhost'); 
-
-//**********************
-//****movie require*****
-//**********************
-// var movie = require('./movie');
-// var threeFavoriteMovies = ["Gone in 60 Seconds", "MadMax Fury", "Shooter"];
-// threeFavoriteMovies.forEach(function(film) {
-// 	//code
-	
-// });
-// console.log(threeFavoriteMovies);
+mongoose.connect('mongodb://localhost/project2'); 
 
 app.use(morgan('dev')); 
 app.use(cookieParser());
@@ -51,6 +40,20 @@ require('./config/passport')(passport);
     res.locals.currentUser = req.user;
     next();
   });
+
+  /************
+ * DATABASE *
+ ************/
+ // var db = require('/models');
+
+ /*
+ * HTML Endpoints
+ */
+
+// app.get('/', function homepage (req, res) {
+//   res.sendFile(__dirname + '/config/passport.js');
+// });
+
 
 var routes = require('./config/routes');
 app.use(routes);
