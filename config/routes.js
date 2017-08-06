@@ -81,6 +81,9 @@ router.route("/logout")
 router.route("/secret")
 	.get(authenticatedUser, usersController.secret);
 
+router.route("/secret/userProfile")
+  .get(authenticatedUser, usersController.secret);
+
 
 //another route...could be user profile
 // router.route("/secret/sadf")

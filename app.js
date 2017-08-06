@@ -41,19 +41,6 @@ require('./config/passport')(passport);
     next();
   });
 
-  /************
- * DATABASE *
- ************/
- // var db = require('/models');
-
- /*
- * HTML Endpoints
- */
-
-// app.get('/', function homepage (req, res) {
-//   res.sendFile(__dirname + '/config/passport.js');
-// });
-
 
 var routes = require('./config/routes');
 app.use(routes);

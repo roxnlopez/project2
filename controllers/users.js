@@ -50,11 +50,21 @@ function secret(request, response) {
   });
 }
 
+//function secret...for new path created on routes.js
+function userProfile(request, response) {
+  response.render('userProfile.ejs', {
+   
+  });
+   console.log("welcome");
+}
+
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin,
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret
+  secret: secret,
+  //new name to export
+  userProfile: userProfile
 };
