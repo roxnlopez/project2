@@ -17,7 +17,7 @@ function authenticatedUser(req,res,next){
 }
 
 function get(movieTitle) {
-  var apiUrl = 'https://api.themoviedb.org/3/movie/550?api_key=' + keys.apiKey;
+  var apiUrl = 'https://api.themoviedb.org/3/movie/550?api_key=' + apiUrl;
  } 
 
 /*
