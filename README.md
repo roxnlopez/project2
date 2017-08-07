@@ -1,7 +1,7 @@
 MUSTSEES
 *******************
-<img src="/public/main_page.jpg"
-<img src="/public/profile_page.jpg"
+<img src="/public/main_page.jpg">
+<img src="/public/profile_page.jpg">
 *******************
 Trello: https://trello.com/b/86MX77gs/project-2
 *******************
