@@ -7,9 +7,6 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
-// var movie 		 = require('./config/passport');
-
-mongoose.connect('mongodb://localhost/project2'); 
 
 app.use(morgan('dev')); 
 app.use(cookieParser());
@@ -35,7 +32,6 @@ app.use(flash());
 // app.use(bodyParser.json());
 // app.use('/movie', movie);
 
-require('./config/passport')(passport);
 require('./config/passport')(passport);
 
   app.use(function (req, res, next) {

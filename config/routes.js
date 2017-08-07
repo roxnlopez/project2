@@ -7,7 +7,10 @@ var methodOverride = require('method-override');
 var passport = require("passport");
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
+var moviesController = require('../controllers/movies');
 
+
+var apiUrl;
 
 function authenticatedUser(req,res,next){
 	//If the user is authenticated, then we continue the execution
@@ -16,16 +19,18 @@ function authenticatedUser(req,res,next){
 	res.redirect('/');
 }
 
-function get(movieTitle) {
-  var apiUrl = 'https://api.themoviedb.org/3/movie/550?api_key=' + apiUrl;
- } 
-
 /*
  * JSON API Endpoints
  */
 
-// router.get('/', function api_index (req, res){
-// });
+router.get('/', function api_index (req, res){
+  res.render("index.ejs");
+});
+
+router.post('/movieSearch', function movie_search (req,res) {
+  moviesController.movieSearch;
+  console.log(movie);
+});
 
 // router.get('/api/login', function movie_index(req, res){
 //   movie.find({}, function(err, movies) {

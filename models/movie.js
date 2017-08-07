@@ -1,15 +1,15 @@
-// var express = require('express');
-// router = express.Router();
-// var bodyParser = require('body-parser');
-// var keysInfo = require('./env.js');
-// var request = require('request');
+var express = require('express');
+router = express.Router();
+var bodyParser = require('body-parser');
+var apiUrl = require('../env.js');
+var request = require('request');
 
-// //movie array
-// var movies = [
-// 	{
-// 		"id": 1,
-// 		"title": "Gone in 60 Seconds",
-// 	},
+//movie array
+var movies = [
+	{
+		"id": 1,
+		"title": "Gone in 60 Seconds",
+	},
 
 // 	{
 // 		"id": 2,
@@ -20,7 +20,7 @@
 // 		"id": 3,
 // 		"title": "Shooter"
 // 	}
-// ];
+];
 
 // //what would need to go in the movies array
 // //in order to pass a first test?
@@ -42,4 +42,4 @@
 //   console.log(JSON.parse(body).title);
 // 	});
 // }
-// module.exports = router;
+module.exports = router;
