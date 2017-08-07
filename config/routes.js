@@ -27,10 +27,9 @@ router.get('/', function api_index (req, res){
   res.render("index.ejs");
 });
 
-router.post('/movieSearch', function movie_search (req,res) {
-  moviesController.movieSearch;
-  console.log(movie);
-});
+router.route('/movieSearch')
+  .post(moviesController.movieSearch);
+
 
 // router.get('/api/login', function movie_index(req, res){
 //   movie.find({}, function(err, movies) {
@@ -74,7 +73,6 @@ router.route('/signup')
   .post(usersController.postSignup);
 
 router.route('/login', function(req,res) {
-  res.json();
   console.log("hello");
 })
   .get(usersController.getLogin)
@@ -85,6 +83,7 @@ router.route("/logout")
 
 router.route("/secret")
 	.get(authenticatedUser, usersController.secret);
+
 
 //another route...could be user profile
 // router.route("/secret/sadf")

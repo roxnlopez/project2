@@ -24,14 +24,6 @@ app.use(passport.session());
 app.use(flash()); 
 
 
-//var db = require('./views');
-//***************
-//**movie path***
-//***************
-//how to redirect the movie path
-// app.use(bodyParser.json());
-// app.use('/movie', movie);
-
 require('./config/passport')(passport);
 
   app.use(function (req, res, next) {

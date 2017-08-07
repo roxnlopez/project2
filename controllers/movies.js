@@ -4,10 +4,18 @@ var env = require('../env.js');
 var db = require('../models');
 var passport = require("passport");
 
+
+
 function movieSearch(req, res, next) {
 	//build req to 3rd party api
-	request(url, function(err, res, body) { //body is what I get back and what I want to do with it
+	var url = env + "&query=" + req.body.text;
+	console.log(url);
+	request(url, function(err, response, body) { //body is what I get back and what I want to do with it, put in db or send to user
+		console.log("running");
 		if (typeof(body) === 'string'){body = JSON.parse(body)}
+			console.log(body);
+		//if i want to ework with it here(backend), do something here
+		res.json(body);
 	});
 }
 

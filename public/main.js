@@ -20,9 +20,10 @@ $(document).ready(function() {
 		$.ajax({
 			url: '/movie',
 			method: 'POST',
-			data: data,
 			success: function(results){
 				console.log("posted");
+				//whatever i want to do with search results &/or save it & work with backend
+				//use jquery
 			}
 		});
 		$(this).trigger("reset");
