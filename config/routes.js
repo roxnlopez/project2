@@ -25,9 +25,6 @@ function get(movieTitle) {
  */
 
 // router.get('/', function api_index (req, res){
-//   res.json({
-//     message: "Welcome to MustSees!",
-//   });
 // });
 
 // router.get('/api/login', function movie_index(req, res){
@@ -36,15 +33,15 @@ function get(movieTitle) {
 //   });
 // });
 
-// app.post('/api/albums', function album_new (req,res) {
-//   console.log(req.body.genres);
-//   db.Album.create(req.body, function(err, album) {
+// router.post('/login', function movie_new (req,res) {
+//   console.log("hello");
+//   db.movie.create(req.body, function(err, album) {
 //     if (err) {
 //       res.send("error!");
 //     }
-//     var genres = req.body.genres.split(", ");
-//     console.log(req.body.genres);
-//     res.json(album);
+//     var title = req.body.title.split(", ");
+//     console.log(req.body);
+//     res.json(movie);
 //   });
 // });
 

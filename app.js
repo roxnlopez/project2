@@ -26,6 +26,8 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 
 
+
+//var db = require('./views');
 //***************
 //**movie path***
 //***************
