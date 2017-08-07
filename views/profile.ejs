@@ -1,3 +1,14 @@
 <% include ./partials/header.ejs %>
 <h2>Welcome to your home page</h2>	
+<h3>Create Candy!</h3>
+<fieldset>
+  <form method="POST" action="/movieSearcg">
+    <div class="form-group col-md-4">
+      <input name="name" class="form-control" placeholder="Title"/>
+    </div>
+     <div class="form-group col-md-4">
+        <input class="btn btn-info col-md-12" type="submit" value="Submit">
+    </div>
+  </form>
+</fieldset>
 <% include ./partials/footer.ejs %>

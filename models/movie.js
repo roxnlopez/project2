@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var apiUrl = require('../env.js');
 var request = require('request');
 
-//movie array
+//what a movie is goes here
 var movies = [
 	{
 		"id": 1,
@@ -28,18 +28,4 @@ var movies = [
 // 	res.json(movies);
 // });
 
-// function get(movieTitle) {
-// var apiUrl = 'https://api.themoviedb.org/3/movie/550?api_key=' + keys.apiKey;
-// //var apiUrl = url + apiKey + '/conditions/q/' + state + '/' + city + '.json';
-// //https://api.themoviedb.org/3/movie/550?api_key=f46b568fcb6870a6b23e7e7d385c9806
-// //console.log(keysInfo.apiKey);
-// //console.log(keysInfo.engineId);
-// request(apiUrl, function (error, response, body) {
-//   //Inside that callback
-//   //parse data
-//   //Print out the movie result
-//   //console.log(body.items.length);
-//   console.log(JSON.parse(body).title);
-// 	});
-// }
 module.exports = router;

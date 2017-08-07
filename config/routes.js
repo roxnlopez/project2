@@ -30,41 +30,6 @@ router.get('/', function api_index (req, res){
 router.route('/movieSearch')
   .post(moviesController.movieSearch);
 
-
-// router.get('/api/login', function movie_index(req, res){
-//   movie.find({}, function(err, movies) {
-//     res.json(movies);
-//   });
-// });
-
-// router.post('/login', function movie_new (req,res) {
-//   console.log("hello");
-//   db.movie.create(req.body, function(err, album) {
-//     if (err) {
-//       res.send("error!");
-//     }
-//     var title = req.body.title.split(", ");
-//     console.log(req.body);
-//     res.json(movie);
-//   });
-// });
-
-// app.post('/api/albums/:album_id/songs', function album_index(req, res){
-//   db.Album.findOne({_id: req.params.album_id}, function(err, album) {
-//     console.log(req.body);
-//     album.songs.push({name: req.body.name, trackNumber: req.body.trackNumber});
-//     console.log(album);
-//     album.save();
-//     res.json(album);
-//   });
-// });
-
-// app.get('/api/albums/:album_id', function (req,res) {
-//   db.Album.findOne({_id: req.params.album_id}, function(err, album) {
-//     console.log(req.body);
-//     res.json(album);
-//   });
-// });
 router.route('/')
   .get(staticsController.home);
 
@@ -83,6 +48,9 @@ router.route("/logout")
 
 router.route("/secret")
 	.get(authenticatedUser, usersController.secret);
+
+router.route("/profile")
+  .post(moviesController.movieSearch);
 
 
 //another route...could be user profile

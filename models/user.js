@@ -1,3 +1,4 @@
+//build a user schema
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 

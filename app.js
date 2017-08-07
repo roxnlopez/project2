@@ -1,3 +1,4 @@
+//server side javascript
 var express      = require('express');
 var app          = express();
 var mongoose     = require('mongoose');
@@ -12,6 +13,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true})); 
 
+//set up app to accept ejs
 app.set('views', './views');
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
