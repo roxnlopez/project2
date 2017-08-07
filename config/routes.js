@@ -8,6 +8,7 @@ var passport = require("passport");
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
 
+
 function authenticatedUser(req,res,next){
 	//If the user is authenticated, then we continue the execution
 	if (req.isAuthenticated()) return next();
@@ -15,24 +16,23 @@ function authenticatedUser(req,res,next){
 	res.redirect('/');
 }
 
+function get(movieTitle) {
+  var apiUrl = 'https://api.themoviedb.org/3/movie/550?api_key=' + keys.apiKey;
+ } 
+
 /*
  * JSON API Endpoints
  */
 
-// app.get('/api', function api_index (req, res){
+// router.get('/', function api_index (req, res){
 //   res.json({
-//     message: "Welcome to tunely!",
-//     documentation_url: "https://github.com/tgaff/tunely/api.md",
-//     base_url: "http://tunely.herokuapp.com",
-//     endpoints: [
-//       {method: "GET", path: "/api", description: "Describes available endpoints"}
-//     ]
+//     message: "Welcome to MustSees!",
 //   });
 // });
 
-// app.get('/api/albums', function album_index(req, res){
-//   db.Album.find({}, function(err, albums) {
-//     res.json(albums);
+// router.get('/api/login', function movie_index(req, res){
+//   movie.find({}, function(err, movies) {
+//     res.json(movies);
 //   });
 // });
 
@@ -71,7 +71,10 @@ router.route('/signup')
   .get(usersController.getSignup)
   .post(usersController.postSignup);
 
-router.route('/login')
+router.route('/login', function(req,res) {
+  res.json();
+  console.log("hello");
+})
   .get(usersController.getLogin)
   .post(usersController.postLogin);
 
@@ -81,12 +84,11 @@ router.route("/logout")
 router.route("/secret")
 	.get(authenticatedUser, usersController.secret);
 
-router.route("/secret/userProfile")
-  .get(authenticatedUser, usersController.secret);
-
-
 //another route...could be user profile
 // router.route("/secret/sadf")
 //   .get(authenticatedUser, usersController.secret);
+// router.route("/userProfile")
+//   .get(authenticatedUser, usersController.secret);
+
 
 module.exports = router;
