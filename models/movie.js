@@ -1,7 +1,7 @@
 var express = require('express');
 router = express.Router();
 var bodyParser = require('body-parser');
-var apiUrl = require('../env.js');
+//var apiUrl = require('../env.js');
 var request = require('request');
 
 //what a movie is goes here

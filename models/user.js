@@ -1,6 +1,7 @@
 //build a user schema
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
+//var env = require('./env.js');
 
 var User = mongoose.Schema({
   local: {
