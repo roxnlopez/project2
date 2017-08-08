@@ -1,7 +1,16 @@
 body {
-	background-color: #D1E3DD;
+	background-color: #FDFDFF;
 }
 
 .text-center {
 	font-weight: 800;
+	font-size: 16px;
+}
+
+.bg-warning {
+	border-radius: 5px;
+}
+
+input {
+	border-radius: 4px;
 }

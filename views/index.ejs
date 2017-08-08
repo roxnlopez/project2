@@ -1,11 +1,11 @@
 <% include ./partials/header.ejs %>
 <div class="text-center">
-	<p class="font-italic">Welcome!</p>
+	<p>Welcome!</p>
 </div>
 <div class="bg-warning text-white">
 	<h1 class="col-md-12 bg-warning text-white">Search for a movie</h1>
 	<form action="/movieSearch" method="POST"> 
-	  <input name="text" placeholder="Title">
+	  <input class="form-control" style="max-width: 50%" name="text" placeholder="Title">
 	  <input type="submit">
 	</form>
 </div>
