@@ -1,6 +1,10 @@
 var request = require('request');
 var bodyParser = require('body-parser');
-var env = require('../env.js');
+if(process.env.api){
+	env = process.env.api; 
+} else {
+	var env = require('../env.js');
+}
 var db = require('../models');
 var passport = require("passport");
 

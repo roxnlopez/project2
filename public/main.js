@@ -1,5 +1,9 @@
 //front end code here
-
+if(process.env.api){
+	env = process.env.api; 
+} else {
+	var env = require('../env.js');
+}
 //globals here
 var apiUrl;
 

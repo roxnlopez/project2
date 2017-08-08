@@ -8,6 +8,11 @@ var passport = require("passport");
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
 var moviesController = require('../controllers/movies');
+if(process.env.api){
+  env = process.env.api; 
+} else {
+  var env = require('../env.js');
+}
 
 
 var apiUrl;
