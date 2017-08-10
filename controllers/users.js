@@ -50,12 +50,13 @@ function secret(request, response) {
   });
 }
 
-// //function secret...for new path created on routes.js
-function userProfile(request, response) {
-  response.render('userProfile.ejs', {
-   
+//GET list of movies
+function getAll(request, response) {
+  Movie.find(function(error, movies) {
+    if(error) response.json({message: "Could not find movie"});
+    console.log("Rendering movies");
+    response.render('layout', {movies: movies});
   });
-   console.log("welcome");
 }
 
 module.exports = {
@@ -66,5 +67,5 @@ module.exports = {
   getLogout: getLogout,
   secret: secret,
   //new name to export
-  userProfile: userProfile
+  getAll: getAll
 };

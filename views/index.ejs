@@ -4,9 +4,19 @@
 </div>
 <div class="bg-warning text-white">
 	<h1 class="col-md-12 bg-warning text-white">Search for a movie</h1>
-	<form action="/movieSearch" method="POST"> 
+	<form> 
 	  <input class="form-control" style="max-width: 50%" name="text" placeholder="Title">
 	  <input type="submit">
 	</form>
 </div>
+<h1><%= My Movies %></h1>
+<ul>
+  <% for(var i=0; i<movies.length; i++) { %>
+    <li>
+      <a href='movie/<%= movies[i] %>'>
+        <%= movies[i] %>
+      </a>
+    </li>
+  <% } %>
+</ul>
 <% include ./partials/footer.ejs %>

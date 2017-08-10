@@ -33,7 +33,10 @@ router.get('/', function api_index (req, res){
 });
 
 router.route('/movieSearch')
-  .post(moviesController.movieSearch);
+  .get(moviesController.getmovieSearch);
+
+router.route('/movieSearch')
+  .post(moviesController.postmovieSearch);
 
 router.route('/')
   .get(staticsController.home);

@@ -1,5 +1,5 @@
 //front end code here
-if(process.env.api){
+if(process.env.api){ 
 	env = process.env.api; 
 } else {
 	var env = require('../env.js');
@@ -8,8 +8,8 @@ if(process.env.api){
 var apiUrl;
 
 $(document).ready(function() {
-//ajax.get.post....
-//add eventlisteners here too
+	console.log("ready");
+
 	$("form").on("submit", function(event) {
 		event.preventDefault();
 		$.ajax({
@@ -24,6 +24,7 @@ $(document).ready(function() {
 
 	$("form").on("submit", function(event) {
 		event.preventDefault();
+		console.log("posting");
 
 		$.ajax({
 			url: '/movie',
@@ -34,7 +35,8 @@ $(document).ready(function() {
 			}
 		});
 		$(this).trigger("reset");
-		});
+	});
+
 	});
 
 	$.ajax({
@@ -48,17 +50,19 @@ $(document).ready(function() {
 	render();
 });
 
-router.post('/movie', function (req,res) {
-	var newMovie = new db.Movie({
-		title: req.body.title,
-		releaseDate: req.body.releaseDate
-	});
-});
+// router.post('/movie', function (req,res) {
+// 	var newMovie = new db.Movie({
+// 		title: req.body.title,
+// 		releaseDate: req.body.releaseDate
+// 	});
+// });
 
-router.post('/profile', function(req,res) {
-	var newMovie = new db.Movie({
-		title: req.body.title
-	});
-});
+
+
+
+
+
+
+
 
 

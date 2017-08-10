@@ -11,21 +11,25 @@ var movies = [
 		"title": "Gone in 60 Seconds",
 	},
 
-// 	{
-// 		"id": 2,
-// 		"title": "MadMax Fury"
-// 	},
+	{
+		"id": 2,
+		"title": "MadMax Fury"
+	},
 
-// 	{
-// 		"id": 3,
-// 		"title": "Shooter"
-// 	}
+	{
+		"id": 3,
+		"title": "Shooter"
+	}
 ];
 
 // //what would need to go in the movies array
 // //in order to pass a first test?
-// router.get('/', function(req,res) {
-// 	res.json(movies);
+// ejs.renderFile('./index.ejs', data, function(err,str) {
+// 	html = str;
 // });
+
+router.get('/', function(req,res) {
+	res.send(html);
+});
 
 module.exports = router;
