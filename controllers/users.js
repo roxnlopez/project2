@@ -51,13 +51,13 @@ function secret(request, response) {
 }
 
 //GET list of movies
-function getAll(request, response) {
-  Movie.find(function(error, movies) {
-    if(error) response.json({message: "Could not find movie"});
-    console.log("Rendering movies");
-    response.render('layout', {movies: movies});
-  });
-}
+// function getAll(request, response) {
+//   Movie.find(function(error, movies) {
+//     if(error) response.json({message: "Could not find movie"});
+//     console.log("Rendering movies");
+//     response.render('layout', {movies: movies});
+//   });
+// }
 
 module.exports = {
   getLogin: getLogin,
@@ -67,5 +67,5 @@ module.exports = {
   getLogout: getLogout,
   secret: secret,
   //new name to export
-  getAll: getAll
+  // getAll: getAll
 };

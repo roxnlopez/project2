@@ -1,9 +1,10 @@
-//front end code here
-if(process.env.api){ 
-	env = process.env.api; 
-} else {
-	var env = require('../env.js');
-}
+// //front end code here
+// if(process.env.api){ 
+// 	env = process.env.api; 
+// } else {
+// 	var env = require('../env.js');
+// }
+
 //globals here
 var apiUrl;
 
@@ -49,19 +50,6 @@ $(document).ready(function() {
 	movieSearch.push(json);
 	render();
 });
-
-// router.post('/movie', function (req,res) {
-// 	var newMovie = new db.Movie({
-// 		title: req.body.title,
-// 		releaseDate: req.body.releaseDate
-// 	});
-// });
-
-
-
-
-
-
 
 
 

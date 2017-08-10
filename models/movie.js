@@ -11,15 +11,15 @@ var movies = [
 		"title": "Gone in 60 Seconds",
 	},
 
-	{
-		"id": 2,
-		"title": "MadMax Fury"
-	},
+	// {
+	// 	"id": 2,
+	// 	"title": "MadMax Fury"
+	// },
 
-	{
-		"id": 3,
-		"title": "Shooter"
-	}
+	// {
+	// 	"id": 3,
+	// 	"title": "Shooter"
+	// }
 ];
 
 // //what would need to go in the movies array
@@ -28,8 +28,8 @@ var movies = [
 // 	html = str;
 // });
 
-router.get('/', function(req,res) {
-	res.send(html);
-});
+// router.get('/', function(req,res) {
+// 	res.send(html);
+// });
 
 module.exports = router;
