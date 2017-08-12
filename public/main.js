@@ -8,9 +8,11 @@
 //globals here
 var apiUrl;
 
+//load page here
 $(document).ready(function() {
 	console.log("ready");
 
+	//ajax posts here
 	$("form").on("submit", function(event) {
 		event.preventDefault();
 		$.ajax({
@@ -18,12 +20,12 @@ $(document).ready(function() {
 			url: '/user',
 			success: function(result) {
 				console.log("running");
-			}
+			} 
 	});	
 	render();
 	$(this).trigger("reset");
 
-	$("form").on("submit", function(event) {
+	$("form").on("click", function(event) {
 		event.preventDefault();
 		console.log("posting");
 
@@ -50,7 +52,4 @@ $(document).ready(function() {
 	movieSearch.push(json);
 	render();
 });
-
-
-
 

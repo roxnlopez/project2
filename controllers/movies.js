@@ -15,8 +15,8 @@ function movieSearch(req, res, next) {
 	var url = env + "&query=" + req.body.text;
 	console.log(url);
 	request(url, function(err, response, body) { //body is what I get back and what I want to do with it, put in db or send to user
-		console.log("running");
-		if (typeof(body) === 'string'){body = JSON.parse(body)}
+		if (typeof(body) === 'string'){body = JSON.parse(body)};
+	
 			console.log(body);
 		//if i want to ework with it here(backend), do something here
 		res.json(body);
