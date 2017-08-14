@@ -23,7 +23,9 @@ function movieSearch(req, res, next) {
 	});
 }
 
+function postMovie(req,res,next){
 
+}
 
 module.exports = {
 	movieSearch : movieSearch

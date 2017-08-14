@@ -50,53 +50,6 @@ function secret(request, response) {
   });
 }
 
-// router.get('/', function(req,res) {
-//   // What would go here? 
-//   res.json(candies);
-//   // Hint: we want all candies in JSON format
-// });
-
-// router.get('/:id', function(req,res) {
-//   res.send(candies[req.params.id - 1]);
-// });
-
-// router.post('/', function(req,res) {
-//   candies.push(req.body);
-//   res.send(req.body);
-// });
-
-// router.get('/:id', function(req,res) {
-//   candies[req.params.id]=req.body;
-//   res.send();
-// });
-
-// router.put('/:id', function(req,res) {
-//   candies[req.params.id -1]=req.body;
-//   res.send(req.body);
-// });
-
-// router.get('/', function(req,res) {
-//   res.send(candies);
-// });
-
-// router.delete('/:id', function(req,res) {
-//   candies.splice(req.params.id -1, 1);
-//   res.send({"message":"deleted"});
-// });
-
-// router.get('/', function(req,res) {
-//   res.send(candies);
-// });
-
-//GET list of movies
-// function getAll(request, response) {
-//   Movie.find(function(error, movies) {
-//     if(error) response.json({message: "Could not find movie"});
-//     console.log("Rendering movies");
-//     response.render('layout', {movies: movies});
-//   });
-// }
-
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin,

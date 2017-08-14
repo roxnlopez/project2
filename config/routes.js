@@ -29,13 +29,8 @@ function authenticatedUser(req,res,next){
  */
 
 // Fill out routes here
-router.get('/', function api_index (req, res){
-  res.render("index.ejs");
-});
 
-router.route('/movieSearch')
-  .post(moviesController.movieSearch);
-
+//get restful route
 router.route('/')
   .get(staticsController.home);
 
@@ -57,6 +52,24 @@ router.route("/secret")
 
 router.route("/profile")
   .post(moviesController.movieSearch);
+
+//this posts the movie searched..no touchy
+router.route('/movieSearch')
+  .post(moviesController.movieSearch);
+
+//put route here
+router.put('/movieSearch', function(req,res) {
+  movies[req.params]=req.body;
+  res.send(req.body);
+});
+
+// router.delete('/:id', function(req,res) {
+//   candies.splice(req.params.id -1, 1);
+//   res.send({"message":"deleted"});
+// });
+
+// router.get('/', function(req,res) {
+//   res.send(candies);
 
 //another route...could be user profile
 
