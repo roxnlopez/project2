@@ -8,24 +8,20 @@ if(process.env.api){
 var db = require('../models');
 var passport = require("passport");
 
-
+console.log("running here");
 
 function movieSearch(req, res, next) {
 	//build req to 3rd party api
-	var url = env + "&query=" + req.body.text;
+	var url = env + "&query=" + req.params.title;
 	console.log(url);
-	request(url, function(err, response, body) { //body is what I get back and what I want to do with it, put in db or send to user
+	request(url, function(err, response, body) { //body is what I get back and what I want to do with it
 		if (typeof(body) === 'string'){body = JSON.parse(body)};
-	
 			console.log(body);
-		//if i want to ework with it here(backend), do something here
+		//if i want to work with it here(backend), do something here
 		res.json(body);
 	});
 }
 
-function postMovie(req,res,next){
-
-}
 
 module.exports = {
 	movieSearch : movieSearch

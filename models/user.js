@@ -1,13 +1,14 @@
 //build a user schema
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
-//var env = require('./env.js');
+Movie = require('./movie');
 
 var User = mongoose.Schema({
   local: {
     email: String,
     password: String,
-  }
+  },
+  favorites: [Movie.schema]
 });
 
 User.methods.hash = function(password) {

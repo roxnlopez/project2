@@ -1,9 +1,4 @@
 // //front end code here
-// if(process.env.api){ 
-// 	env = process.env.api; 
-// } else {
-// 	var env = require('../env.js');
-// }
 
 //globals here
 var apiUrl;
@@ -12,7 +7,6 @@ var newMovie = $("#movie").val();
 var newMovieObject = {
 	title: newMovie
 };
-console.log(newMovieObject);
 
 //load page here
 $(document).ready(function() {
@@ -21,44 +15,48 @@ $(document).ready(function() {
 	//ajax posts here
 	$("form").on("submit", function(event) {
 		event.preventDefault();
+		var searchTitle = $('#searchTitle').val().split(" ").join("%20");
+		var searchUrl = '/movieSearch/' + searchTitle;
+		console.log(searchUrl);
 		$.ajax({
 			method: 'GET',
-			url: '/movieSearch',
+			url: searchUrl,
 			success: function(result) {
 				console.log("running");
+				console.log(result);
 				//display API contents in a form
-				result.forEach(function(el) {
-					$(movies).append("<li>" + el.title + "- </li>");
+				result.results.forEach(function(movie) {
+					$('#movie').append("<li>" + movie.title + "- </li>");
 				});
 			} 
 	});	
-	render();
+
 	$(this).trigger("reset");
 
-	$("form").on("click", function(event) {
-		event.preventDefault();
-		console.log("posting");
+	// $("id").on("click", function(event) {
+	// 	event.preventDefault();
+	// 	console.log("posting");
+//look for id on click
+	// 	$.ajax({
+	// 		url: '/movie',
+	// 		method: 'POST',
+	// 		success: function(results){
+	// 			console.log("posted");
+	// 			//whatever i want to do with search results &/or save it & work with backend...use jquery
+	// 		}
+	// 	});
+	// 	$(this).trigger("reset");
+	// });
 
-		$.ajax({
-			url: '/movie',
-			method: 'POST',
-			success: function(results){
-				console.log("posted");
-				//whatever i want to do with search results &/or save it & work with backend...use jquery
-			}
-		});
-		$(this).trigger("reset");
-	});
-
-	});
-
+	 });
+ 
 });
 
-$.post('/movieSearch', JSON.stringify(newMovieObject))
-	.done(function(results) {
-	var newMovieResults = JSON.parse(results);
-	$('#movie').append('<li>' + newMovieObject.title + ' - <em></li>');
-	});
+// $.post('/postMovie', JSON.stringify(newMovieObject))
+// 	.done(function(results) {
+// 	var newMovieResults = JSON.parse(results);
+// 	$('#movie').append('<li>' + newMovieObject.title + ' - <em></li>');
+// 	});
 
 	//create some new cool cats
 //$('.results').append("Once upon a time there was a Developer named " + $("#name").val().split(" ").join("") + ". "

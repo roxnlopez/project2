@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router(); 
 // Parses information from POST
 var bodyParser = require('body-parser');
 // Used to manipulate POST methods
@@ -30,7 +30,7 @@ function authenticatedUser(req,res,next){
 
 // Fill out routes here
 
-//get restful route
+//GET restful route
 router.route('/')
   .get(staticsController.home);
 
@@ -50,18 +50,18 @@ router.route("/logout")
 router.route("/secret")
 	.get(authenticatedUser, usersController.secret);
 
-router.route("/profile")
+//this GETs the movie searched..no touchy
+router.route('/movieSearch/:title')
+  .get(moviesController.movieSearch)
   .post(moviesController.movieSearch);
 
-//this posts the movie searched..no touchy
-router.route('/movieSearch')
-  .post(moviesController.movieSearch);
+//POST here
 
-//put route here
-router.put('/movieSearch', function(req,res) {
-  movies[req.params]=req.body;
-  res.send(req.body);
-});
+//PUT route here
+// router.put('/movieSearch', function(req,res) {
+//   movies[req.params]=req.body;
+//   res.send(req.body);
+// });
 
 // router.delete('/:id', function(req,res) {
 //   candies.splice(req.params.id -1, 1);

@@ -7,15 +7,30 @@
 		<div class="col-lg-4 img-responsive">
 			<h1>Search for a movie</h1>
 		</div>
-		<div class="col-lg-4 img-responsive">
-		<form class="form" action="/movieSearch" method="POST"> 
-		  	<input class="form-control" max-width"50%" name="text" placeholder="Title">
-		</div> 
-		<div class="col-lg-4 img-responsive">
+		<div class="col-lg-8 img-responsive">
+		<form class="form" action="/" method="GET"> 
+		  	<input id="searchTitle" class="form-control" max-width:"50%" name="text" placeholder="Title">
 		  	<input class="btn btn-secondary" type="submit">
-		</div>
 	<!-- 	  <button type="button" class="btn btn-secondary">Search</button> -->
+		</div>
 		</form>
 	</div> 
 </div>
+<div id="movie"></div>
+<div class="posters container">
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-3">
+				<img src="nosferatu_2.jpg"  style="height: 380px;">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-3">
+				<img src="toystory.jpg"  style="height: 380px;">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-3">
+				<img src="die-hard.jpg" style="height: 380px;">
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-3">
+				<img src="bridesmaids.jpg" style="height: 380px;">
+			</div> 
+		</div> <%/* class row div */%>
+	</div>	<%/* inline div */%>
 <% include ./partials/footer.ejs %>
