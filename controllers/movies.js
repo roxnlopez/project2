@@ -1,3 +1,4 @@
+//back end
 var request = require('request');
 var bodyParser = require('body-parser');
 if(process.env.api){
@@ -10,6 +11,7 @@ var passport = require("passport");
 
 console.log("running here");
 
+//GET api here
 function movieSearch(req, res, next) {
 	//build req to 3rd party api
 	var url = env + "&query=" + req.params.title;
@@ -21,8 +23,28 @@ function movieSearch(req, res, next) {
 		res.json(body);
 	});
 }
-
+//POST new movie here /movieSearch/movie
+function addNewMovie(req,res,next) {
+	console.log("roxann");
+	// if(req.addNewMovie) {
+	// 	console.log("there is a movie fan");
+ //      if (err) {
+ //        // console.log('err: ' + err);
+ //        res.status(503).send('ERROR::' + err);
+ //      } else {
+ //        db.User.update({_id: req.user._id}, { $push: {movie: newmovie} }, function(err, updatedUser) {
+ //          if (err) {
+ //            // console.log('err: ' + err);
+ //            res.status(503).send('ERROR::' + err);
+ //          } else {
+ //            res.json(updatedUser);
+ //          }
+ //        });
+ //      }
+	// }
+}
 
 module.exports = {
-	movieSearch : movieSearch
+	movieSearch : movieSearch,
+	
 };

@@ -28,12 +28,11 @@ function authenticatedUser(req,res,next){
  * JSON API Endpoints
  */
 
-// Fill out routes here
-
 //GET restful route
 router.route('/')
   .get(staticsController.home);
 
+//user routes  
 router.route('/signup')
   .get(usersController.getSignup)
   .post(usersController.postSignup);
@@ -56,6 +55,8 @@ router.route('/movieSearch/:title')
   .post(moviesController.movieSearch);
 
 //POST here
+router.route('/movieSearch/profile')
+  .post(moviesController.movieSearchNew);
 
 //PUT route here
 // router.put('/movieSearch', function(req,res) {
@@ -67,10 +68,5 @@ router.route('/movieSearch/:title')
 //   candies.splice(req.params.id -1, 1);
 //   res.send({"message":"deleted"});
 // });
-
-// router.get('/', function(req,res) {
-//   res.send(candies);
-
-//another route...could be user profile
 
 module.exports = router;

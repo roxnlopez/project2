@@ -12,6 +12,12 @@ var newMovieObject = {
 $(document).ready(function() {
 	console.log("ready");
 
+ // the user object was retrieved successfully, so we have the inventory
+  function handleSuccess(json) {
+    //console.log('handleSuccess');
+    //console.log(json);
+}
+
 	//ajax posts here
 	$("form").on("submit", function(event) {
 		event.preventDefault();
@@ -25,6 +31,7 @@ $(document).ready(function() {
 				console.log("running");
 				console.log(result);
 				//display API contents in a form
+				$('#movie').empty();
 				result.results.forEach(function(movie) {
 					$('#movie').append("<li>" + movie.title + "- </li>");
 				});
@@ -33,35 +40,46 @@ $(document).ready(function() {
 
 	$(this).trigger("reset");
 
-	// $("id").on("click", function(event) {
-	// 	event.preventDefault();
-	// 	console.log("posting");
+console.log("posting");
 //look for id on click
-	// 	$.ajax({
-	// 		url: '/movie',
-	// 		method: 'POST',
-	// 		success: function(results){
-	// 			console.log("posted");
-	// 			//whatever i want to do with search results &/or save it & work with backend...use jquery
-	// 		}
-	// 	});
-	// 	$(this).trigger("reset");
-	// });
+	$.ajax({
+		method: 'POST',
+		url: '/profile',
+		data: newMovie,
+		success: handlePostSuccess,
+		error: handlePostError
+	});
 
-	 });
- 
-});
+	$(this).trigger("reset");
+	// new movie was added successfully, now we need the updated user object
+  function handlePostSuccess(json) {
+    //console.log(json);
+    $.ajax({
+      method: 'GET',
+      url: '/profile',
+      success: handleUpdatedUserSuccess,
+      error: handleUpdatedUserError
+    });
 
-// $.post('/postMovie', JSON.stringify(newMovieObject))
-// 	.done(function(results) {
-// 	var newMovieResults = JSON.parse(results);
-// 	$('#movie').append('<li>' + newMovieObject.title + ' - <em></li>');
-// 	});
+  }
 
+  function handlePostError(json) {
+    console.log('failed to add stash. sorry.');
+  }
+
+  // successfully retrieved the updated user object with the updated inventory
+  function handleUpdatedUserSuccess(json) {
+    //console.log(json);
+    renderMovie(json.movie[json.movie.length - 1]);
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
+  }
+
+  function handleUpdatedUserError(json) {
+    console.log('failed to get updated inventory. sorry.');
+  }
+});	
 	//create some new cool cats
 //$('.results').append("Once upon a time there was a Developer named " + $("#name").val().split(" ").join("") + ". "
-	
-//create object with new info 
 
 	
 	//add cat or note and refresh list
@@ -73,3 +91,4 @@ $(document).ready(function() {
 	//	success: function(el){
 	//		console.log('hi');
 	//	}
+});
