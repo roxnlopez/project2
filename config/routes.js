@@ -28,6 +28,10 @@ function authenticatedUser(req,res,next){
  * JSON API Endpoints
  */
 
+
+router.route('/api/user')
+  .get(staticsController.userInfo);
+
 //GET restful route
 router.route('/')
   .get(staticsController.home);
@@ -46,17 +50,15 @@ router.route('/login', function(req,res) {
 router.route("/logout")
   .get(usersController.getLogout);
 
-router.route("/secret")
-	.get(authenticatedUser, usersController.secret);
-
-//this GETs the movie searched..no touchy
-router.route('/movieSearch/:title')
-  .get(moviesController.movieSearch)
-  .post(moviesController.movieSearch);
 
 //POST here
 router.route('/movieSearch/profile')
-  .post(moviesController.movieSearchNew);
+  .post(moviesController.addNewMovie);
+
+  //this GETs the movie searched..no touchy
+router.route('/movieSearch/:title')
+  .get(moviesController.movieSearch)
+  .post(moviesController.movieSearch);
 
 //PUT route here
 // router.put('/movieSearch', function(req,res) {
@@ -64,9 +66,12 @@ router.route('/movieSearch/profile')
 //   res.send(req.body);
 // });
 
+
+//DELETE route here
 // router.delete('/:id', function(req,res) {
-//   candies.splice(req.params.id -1, 1);
+//   movies.splice(req.params.id -1, 1);
 //   res.send({"message":"deleted"});
 // });
+
 
 module.exports = router;

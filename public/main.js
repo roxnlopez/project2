@@ -1,4 +1,4 @@
-// //front end code here
+// //front end client side code here
 
 //globals here
 var apiUrl;
@@ -12,6 +12,15 @@ var newMovieObject = {
 $(document).ready(function() {
 	console.log("ready");
 
+	$.ajax({
+		method: 'GET',
+		url: '/api/user',
+		success: function(result) {
+			console.log(result);
+			updateFavorites(result);
+		}
+
+	});
  // the user object was retrieved successfully, so we have the inventory
   function handleSuccess(json) {
     //console.log('handleSuccess');
@@ -33,62 +42,53 @@ $(document).ready(function() {
 				//display API contents in a form
 				$('#movie').empty();
 				result.results.forEach(function(movie) {
-					$('#movie').append("<li>" + movie.title + "- </li>");
+					console.log(movie.title);
+					$('#movie').append("<li data-movie-title='"+ movie.title +"'>" + movie.title + "- <button class='save'>Save</button></li>");
 				});
 			} 
 	});	
 
 	$(this).trigger("reset");
+	// new movie was added successfully, now we need the updated user object
+  // function handlePostSuccess(json) {
+  //   //console.log(json);
+  //   $.ajax({
+  //     method: 'GET',
+  //     url: '/profile',
+  //     success: handleUpdatedUserSuccess,
+  //     error: handleUpdatedUserError
+  //   });
 
-console.log("posting");
-//look for id on click
+  // }
+
+});	
+
+$('#movie').on('click', '.save', function (e) {
+	console.log(this);
+	movieName = $(this).parents('li').data('movie-title');
+	console.log(movieName);
 	$.ajax({
 		method: 'POST',
-		url: '/profile',
-		data: newMovie,
-		success: handlePostSuccess,
-		error: handlePostError
+		url: '/movieSearch/profile',
+		data: {'title': movieName},
+		success: function(result) {
+			$('#statusMessage').text("Saved");
+			var movies = $('#favorites').text() + " " + movieName;
+			$('#favorites').text(movies);
+		console.log("hey! you!" + result);
+		}
 	});
+});
 
-	$(this).trigger("reset");
-	// new movie was added successfully, now we need the updated user object
-  function handlePostSuccess(json) {
-    //console.log(json);
-    $.ajax({
-      method: 'GET',
-      url: '/profile',
-      success: handleUpdatedUserSuccess,
-      error: handleUpdatedUserError
-    });
+function updateFavorites(result) {
+	var favList = "";
+	$('#favorites').text("");
+	for(var i=0; i < result.favorites.length; i++) {
+		favList =  favList + " " + result.favorites[i].title;
+	}
+	$('#favorites').text(favList);
+	console.log("helpless" + favList);
+	console.log(result.favorites.length);
+}
 
-  }
-
-  function handlePostError(json) {
-    console.log('failed to add stash. sorry.');
-  }
-
-  // successfully retrieved the updated user object with the updated inventory
-  function handleUpdatedUserSuccess(json) {
-    //console.log(json);
-    renderMovie(json.movie[json.movie.length - 1]);
-    $('html, body').animate({ scrollTop: 0 }, 'fast');
-  }
-
-  function handleUpdatedUserError(json) {
-    console.log('failed to get updated inventory. sorry.');
-  }
-});	
-	//create some new cool cats
-//$('.results').append("Once upon a time there was a Developer named " + $("#name").val().split(" ").join("") + ". "
-
-	
-	//add cat or note and refresh list
-	//$('#new-name').serialize();
-	//$.ajax({
-	//	type: 'POST',
-	//	url: 'https://ga-cat-rescue.herokuapp.com/api/cats',
-	//	data: $('#new-name').serialize(),
-	//	success: function(el){
-	//		console.log('hi');
-	//	}
 });

@@ -11,7 +11,8 @@ var session      = require('express-session');
 
 app.use(morgan('dev')); 
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended: true})); 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 //set up app to accept ejs
 app.set('views', './views');

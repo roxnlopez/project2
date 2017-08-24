@@ -30,3 +30,7 @@ body {
 	text-align: center;
 	font-family: 'BenchNine', sans-serif;
 }
+
+#login {
+	margin-left: 30%;
+}

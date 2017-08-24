@@ -1,6 +1,7 @@
 <% include ./partials/header.ejs %>
 <div class="text-center">
 	<p>Welcome!</p>
+	<div id="favorites"></div>
 </div>
 <div class="search">
 	<div class="row">
@@ -14,10 +15,11 @@
 	<!-- 	  <button type="button" class="btn btn-secondary">Search</button> -->
 		</div>
 		</form>
+		<div id="statusMessage"></div>
 	</div> 
 </div>
 <div id="movie"></div>
-<div class="posters container">
+<div id="addMovie"class="posters container">
 		<div class="row">
 			<div class="col-md-3 col-sm-3 col-xs-3">
 				<img src="nosferatu_2.jpg"  style="height: 380px;">
@@ -33,4 +35,5 @@
 			</div> 
 		</div> <%/* class row div */%>
 	</div>	<%/* inline div */%>
+
 <% include ./partials/footer.ejs %>
