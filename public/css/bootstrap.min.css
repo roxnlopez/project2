@@ -34,3 +34,18 @@ body {
 #login {
 	margin-left: 30%;
 }
+
+#search-movie {
+	
+}
+
+#searchTitle {
+	width: 400px;
+	display: inline-block;
+	margin: 10px;
+}
+
+#submit-btn {
+	display: inline-block;
+	margin-right: 10%;
+}

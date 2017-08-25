@@ -1,13 +1,13 @@
-var express = require('express');
-var router = express.Router(); 
+const express = require('express');
+const router = express.Router(); 
 // Parses information from POST
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 // Used to manipulate POST methods
-var methodOverride = require('method-override');
-var passport = require("passport");
-var usersController = require('../controllers/users');
-var staticsController = require('../controllers/statics');
-var moviesController = require('../controllers/movies');
+const methodOverride = require('method-override');
+const passport = require("passport");
+const usersController = require('../controllers/users');
+const staticsController = require('../controllers/statics');
+const moviesController = require('../controllers/movies');
 if(process.env.api){
   env = process.env.api; 
 } else {
@@ -51,27 +51,17 @@ router.route("/logout")
   .get(usersController.getLogout);
 
 
-//POST here
+//POST Crud here
 router.route('/movieSearch/profile')
   .post(moviesController.addNewMovie);
 
-  //this GETs the movie searched..no touchy
+//this GETs the movie searched..no touchy cRud
 router.route('/movieSearch/:title')
   .get(moviesController.movieSearch)
   .post(moviesController.movieSearch);
 
-//PUT route here
-// router.put('/movieSearch', function(req,res) {
-//   movies[req.params]=req.body;
-//   res.send(req.body);
-// });
-
-
-//DELETE route here
-// router.delete('/:id', function(req,res) {
-//   movies.splice(req.params.id -1, 1);
-//   res.send({"message":"deleted"});
-// });
-
+//DELETE cruD route here
+router.route('/api/user/:title')
+  .delete(moviesController.movieRemove);
 
 module.exports = router;

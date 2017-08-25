@@ -1,13 +1,14 @@
 //back end
-var request = require('request');
-var bodyParser = require('body-parser');
+
+const request = require('request');
+const bodyParser = require('body-parser');
 if(process.env.api){
 	env = process.env.api; 
 } else {
 	var env = require('../env.js');
 }
 var db = require('../models');
-var passport = require("passport");
+const passport = require("passport");
 
 console.log("running here");
 
@@ -23,7 +24,7 @@ function movieSearch(req, res, next) {
 		res.json(body);
 	});
 }
-//POST new movie here /movieSearch/movie
+//POST CREATE new movie here /movieSearch/movie
 function addNewMovie(req,res) {
 	console.log("look at this" + req.body.title);
 	console.log(req.user);
@@ -45,27 +46,22 @@ function addNewMovie(req,res) {
 
 }
 
-//CREATE new movie
-// function createMovie(req,res,next) {
-// 	var Todo = require("../models/todo");
-
-// // Assuming this is from a POST request and the body of the
-// // request contained the JSON of the new "todo" item to be saved
-// var todo = new Todo(req.body);  
-// todo.save(function (err, createdTodoObject) {  
-//     if (err) {
-//         res.send(err);
-//     }
-//     // This createdTodoObject is the same one we saved, but after Mongo
-//     // added its additional properties like _id.
-//     res.send(createdTodoObject);
-// 	});
-
-// }
+// DELETE
+function movieRemove(req,res) {
+	console.log("movieRemove is working");
+	db.User.findOneAndRemove({title: req.body.title}, function(err, foundMovie){
+		console.log("roxann");
+		var response = {
+			message: "Movie successfully deleted"
+		};	
+		res.send(req.body.title);
+	});
+}
 
 module.exports = {
 	movieSearch : movieSearch,
 	addNewMovie: addNewMovie,
-	// createMovie: createMovie,
+	// movieUpdate: movieUpdate,
+	movieRemove: movieRemove
 	
 };

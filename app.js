@@ -1,13 +1,13 @@
 //server side javascript
-var express      = require('express');
-var app          = express();
-var mongoose     = require('mongoose');
-var passport     = require('passport');
-var flash        = require('connect-flash');
-var morgan       = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
-var session      = require('express-session');
+const express      = require('express');
+const app          = express();
+const mongoose     = require('mongoose');
+const passport     = require('passport');
+const flash        = require('connect-flash');
+const morgan       = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser   = require('body-parser');
+const session      = require('express-session');
 
 app.use(morgan('dev')); 
 app.use(cookieParser());
@@ -35,7 +35,7 @@ require('./config/passport')(passport);
   });
 
 
-var routes = require('./config/routes');
+const routes = require('./config/routes');
 app.use(routes);
 
 app.listen(process.env.PORT || 3000);

@@ -1,17 +1,19 @@
 <% include ./partials/header.ejs %>
 <div class="text-center">
 	<p>Welcome!</p>
-	<div id="favorites"></div>
+	<div id="favorites">
+	<ul></ul>
+	</div>
 </div>
 <div class="search">
 	<div class="row">
-		<div class="col-lg-4 img-responsive">
+		<div id="search-movie" class="col-lg-4 img-responsive">
 			<h1>Search for a movie</h1>
 		</div>
 		<div class="col-lg-8 img-responsive">
 		<form class="form" action="/" method="GET"> 
-		  	<input id="searchTitle" class="form-control" max-width:"50%" name="text" placeholder="Title">
-		  	<input class="btn btn-secondary" type="submit">
+		  	<input id="searchTitle" class="form-control" name="text" placeholder="Title">
+		  	<input id="submit-btn" class="btn btn-secondary" type="submit">
 	<!-- 	  <button type="button" class="btn btn-secondary">Search</button> -->
 		</div>
 		</form>

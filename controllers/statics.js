@@ -16,7 +16,6 @@ function userInfo(req,res) {
 	});
 }
 
-
 module.exports = {
   home: home,
   userInfo: userInfo
