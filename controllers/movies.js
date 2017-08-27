@@ -50,11 +50,11 @@ function addNewMovie(req,res) {
 function movieRemove(req,res) {
 	console.log("movieRemove is working");
 	db.User.findOneAndRemove({title: req.body.title}, function(err, foundMovie){
-		console.log("roxann");
+		console.log(foundMovie);
 		var response = {
 			message: "Movie successfully deleted"
 		};	
-		res.send(req.body.title);
+		res.send(foundMovie);
 	});
 }
 

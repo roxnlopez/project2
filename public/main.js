@@ -21,7 +21,7 @@ $(document).ready(function() {
 		}
 	});
  // the user object was retrieved successfully, so we have the inventory
-  function handleSuccess(json) {
+  	function handleSuccess(json) {
     //console.log('handleSuccess');
     //console.log(json);
 	}
@@ -45,7 +45,7 @@ $(document).ready(function() {
 					$('#movie').append("<li data-movie-title='"+ movie.title +"'>" + movie.title + "- <button class='save'>Save</button></li>");
 				});
 			} 
-	});	
+		});	
 
 	$(this).trigger("reset");
 
@@ -68,25 +68,26 @@ $(document).ready(function() {
 		});
 	});
 
-	function updateFavorites(result) {
-				$('#favorites').html("<ul></ul>");
-				for(var i=0; i < result.favorites.length; i++) {
-					$('#favorites').append("<li>" + result.favorites[i].title + "- <button class='delete'>Delete</button></li>");
-				}
-	    }
 			//console.log(result.favorites.length);
 });
+
+	function updateFavorites(result) {
+		$('#favorites').html("<ul></ul>");
+		for(var i=0; i < result.favorites.length; i++) {
+			$('#favorites').append("<li>" + result.favorites[i].title + "- <button class='delete'>Delete</button></li>");
+		}
+	}
 
 	$('#favorites').on('click', '.delete', function (e) {
 		console.log('Thursday');
 		$.ajax({
-	    url: '/api/user/:title',
-	    type: 'DELETE',
-	    data: {'title': 'delete'}, //<-----this should have to be an object.
-	    success: (result) => { 
-	    	console.log(result);
-	    	//update movie list
-	    	updateFavorites(result);
-	    }
+		    url: '/api/user/:title',
+		    type: 'DELETE',
+		    data: {'title': 'delete'}, //<-----this should have to be an object.
+		    success: (result) => { 
+		    	console.log(result);
+		    	//update movie list
+		    	updateFavorites(result);
+		    }
 		});
 	});
